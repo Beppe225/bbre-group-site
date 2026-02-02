@@ -525,10 +525,10 @@ Salva questi codici colore nelle impostazioni tema di Google Sites:
 
 Trova e sostituisci in TUTTE le sezioni:
 
-- `info@bbregroup.it` → TUA EMAIL REALE
-- `+39 02 1234 5678` → TUO TELEFONO REALE
-- `Milano, Lombardia` → TUO INDIRIZZO REALE
-- `P.IVA: [DA INSERIRE]` → TUA PARTITA IVA
+- `barbieri@bbre.it` → TUA EMAIL REALE
+- `+39 335 8083125` → TUO TELEFONO REALE
+- `Via Valosa di sopra, 26 - 20900 Monza (MB)` → TUO INDIRIZZO REALE
+- `P.IVA: 13621430969` → TUA PARTITA IVA
 
 ---
 
