@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — BBRE Group | Articoli su Immobiliare, Finance, Edilizia e Credito</title>
+    <meta name="description" content="Articoli, guide e approfondimenti su investimenti immobiliari, finanziamenti, ristrutturazioni e gestione del credito a cura degli esperti BBRE Group.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #2C3E50; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(10px);
+            padding: 0 40px; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(201,169,98,0.2);
+        }
+        .nav-logo { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; }
+        .nav-logo span { color: #C9A962; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #C9A962; }
+        .nav-cta { background: #C9A962; color: white; padding: 10px 24px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+        .nav-cta:hover { background: #b8934f; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0A1929 0%, #1a2f42 100%);
+            color: white; padding: 130px 20px 70px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%;
+            width: 80%; height: 150%;
+            background: radial-gradient(circle, rgba(201,169,98,0.10) 0%, transparent 70%);
+        }
+        .hero-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .hero-badge {
+            display: inline-block; background: rgba(201,169,98,0.15); color: #C9A962;
+            border: 1px solid rgba(201,169,98,0.4); padding: 8px 20px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 18px; line-height: 1.15; }
+        .hero h1 span { color: #C9A962; }
+        .hero p { font-size: 1.1rem; opacity: 0.85; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+
+        /* FILTRI */
+        .filters-bar {
+            background: white; padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+            position: sticky; top: 70px; z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .filter-label { font-size: 0.85rem; font-weight: 600; color: #8A9BAC; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+        .filter-btn {
+            padding: 8px 20px; border-radius: 50px; border: 2px solid #E0E0E0;
+            background: white; color: #5A6C7D; font-size: 0.88rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .filter-btn:hover { border-color: #C9A962; color: #C9A962; }
+        .filter-btn.active { background: #C9A962; border-color: #C9A962; color: white; }
+
+        /* BLOG GRID */
+        .blog-section { background: #F4F6F8; padding: 60px 40px 90px; }
+        .blog-inner { max-width: 1200px; margin: 0 auto; }
+        .blog-count { font-size: 0.9rem; color: #8A9BAC; margin-bottom: 30px; }
+        .blog-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        /* ARTICLE CARD */
+        .article-card {
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07); transition: all 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+        .article-card.hidden { display: none; }
+
+        .card-thumb {
+            height: 12px; background: #C9A962;
+        }
+        .card-thumb.cat-immobiliare { background: linear-gradient(90deg, #C9A962, #b8934f); }
+        .card-thumb.cat-finance { background: linear-gradient(90deg, #2E86AB, #1a6b8a); }
+        .card-thumb.cat-opere-edili { background: linear-gradient(90deg, #A23B72, #8a2a5e); }
+        .card-thumb.cat-consulenza-credito { background: linear-gradient(90deg, #27AE60, #1e8a4a); }
+
+        .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+        .card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .card-cat {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 20px;
+        }
+        .card-cat.cat-immobiliare { background: rgba(201,169,98,0.12); color: #b8934f; }
+        .card-cat.cat-finance { background: rgba(46,134,171,0.12); color: #2E86AB; }
+        .card-cat.cat-opere-edili { background: rgba(162,59,114,0.12); color: #A23B72; }
+        .card-cat.cat-consulenza-credito { background: rgba(39,174,96,0.12); color: #27AE60; }
+
+        .card-date { font-size: 0.82rem; color: #8A9BAC; }
+        .card-body h2 {
+            font-family: Georgia, serif; font-size: 1.2rem; font-weight: 700;
+            color: #0A1929; margin-bottom: 12px; line-height: 1.4;
+        }
+        .card-body p { font-size: 0.93rem; color: #5A6C7D; line-height: 1.75; flex: 1; margin-bottom: 20px; }
+        .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; }
+        .card-author { font-size: 0.82rem; color: #8A9BAC; }
+        .card-link { color: #C9A962; font-weight: 700; text-decoration: none; font-size: 0.88rem; }
+        .card-link:hover { text-decoration: underline; }
+
+        /* NO RESULTS */
+        .no-results { text-align: center; padding: 60px 20px; display: none; }
+        .no-results h3 { font-family: Georgia, serif; font-size: 1.5rem; color: #0A1929; margin-bottom: 10px; }
+        .no-results p { color: #5A6C7D; }
+
+        /* CTA */
+        .cta-section { padding: 90px 20px; background: white; text-align: center; }
+        .cta-box { max-width: 680px; margin: 0 auto; background: #F4F6F8; border-radius: 16px; padding: 50px; border-top: 4px solid #C9A962; }
+        .cta-box h3 { font-family: Georgia, serif; font-size: 1.9rem; font-weight: 900; color: #0A1929; margin-bottom: 14px; }
+        .cta-box p { color: #5A6C7D; font-size: 1.05rem; margin-bottom: 28px; line-height: 1.75; }
+        .btn-calendar { display: inline-flex; align-items: center; gap: 10px; background: #C9A962; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+        .btn-calendar:hover { background: #b8934f; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { background: #0A1929; color: rgba(255,255,255,0.75); padding: 70px 40px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .footer-brand h3 { font-family: Georgia, serif; font-size: 1.8rem; color: white; margin-bottom: 16px; }
+        .footer-brand h3 span { color: #C9A962; }
+        .footer-brand p { line-height: 1.8; margin-bottom: 20px; }
+        .footer-brand address { font-style: normal; line-height: 1.8; font-size: 0.9rem; }
+        .footer-col h4 { color: white; font-weight: 700; margin-bottom: 20px; font-size: 1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: #C9A962; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+        .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+        .footer-bottom a:hover { color: #C9A962; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .filters-bar { padding: 20px; }
+            .blog-section { padding: 40px 20px 70px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            footer { padding: 60px 20px 30px; }
+            .cta-box { padding: 36px 24px; }
+        }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">BBRE <span>Group</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html#brands">I Nostri Brand</a></li>
+        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#consulenza">Consulenza</a></li>
+    </ul>
+    <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="nav-cta">Prenota Consulenza</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">Risorse e Approfondimenti</div>
+        <h1>Il Blog di <span>BBRE Group</span></h1>
+        <p>Guide pratiche, analisi di mercato e consigli degli esperti su immobiliare, finanza, edilizia e gestione del credito.</p>
+    </div>
+</section>
+
+<!-- FILTRI -->
+<div class="filters-bar">
+    <div class="filters-inner">
+        <span class="filter-label">Filtra:</span>
+        <button class="filter-btn active" data-cat="all">Tutti</button>
+        <button class="filter-btn" data-cat="immobiliare">🏢 Immobiliare</button>
+        <button class="filter-btn" data-cat="finance">💰 Finance</button>
+        <button class="filter-btn" data-cat="opere-edili">🔨 Opere Edili</button>
+        <button class="filter-btn" data-cat="consulenza-credito">📊 Consulenza Credito</button>
+    </div>
+</div>
+
+<!-- ARTICOLI -->
+<section class="blog-section">
+    <div class="blog-inner">
+        <p class="blog-count" id="blog-count">8 articoli</p>
+        <div class="blog-grid" id="blog-grid">
+
+            <!-- IMMOBILIARE 1 -->
+            <article class="article-card" data-cat="immobiliare">
+                <div class="card-thumb cat-immobiliare"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-immobiliare">Immobiliare</span>
+                        <span class="card-date">18 Marzo 2026</span>
+                    </div>
+                    <h2>Aste Giudiziarie: Come Acquistare un Immobile al di Sotto del Valore di Mercato</h2>
+                    <p>Le aste giudiziarie rappresentano una delle opportunità più interessanti per gli investitori immobiliari. Scopri come funzionano, i rischi da evitare e la strategia vincente per aggiudicarsi l'immobile giusto.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Immobiliare</span>
+                        <a href="blog/aste-giudiziarie-guida-completa.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- IMMOBILIARE 2 -->
+            <article class="article-card" data-cat="immobiliare">
+                <div class="card-thumb cat-immobiliare"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-immobiliare">Immobiliare</span>
+                        <span class="card-date">5 Marzo 2026</span>
+                    </div>
+                    <h2>Milano Hinterland 2026: Le Zone con il Miglior Rendimento da Investimento</h2>
+                    <p>Un'analisi approfondita dei quartieri e dei comuni dell'hinterland milanese con il miglior rapporto prezzo/rendita. I dati, le tendenze e le aree da tenere d'occhio quest'anno.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Immobiliare</span>
+                        <a href="blog/milano-hinterland-zone-investimento-2026.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- FINANCE 1 -->
+            <article class="article-card" data-cat="finance">
+                <div class="card-thumb cat-finance"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-finance">Finance</span>
+                        <span class="card-date">12 Marzo 2026</span>
+                    </div>
+                    <h2>Mutuo o Leasing Immobiliare: Quale Conviene per l'Investitore nel 2026?</h2>
+                    <p>Due strumenti diversi per finanziare l'acquisto di un immobile. Analizziamo vantaggi fiscali, flessibilità e impatto sul bilancio per aiutarti a scegliere la soluzione più adatta al tuo profilo.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Finance</span>
+                        <a href="blog/mutuo-vs-leasing-immobiliare-2026.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- FINANCE 2 -->
+            <article class="article-card" data-cat="finance">
+                <div class="card-thumb cat-finance"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-finance">Finance</span>
+                        <span class="card-date">28 Febbraio 2026</span>
+                    </div>
+                    <h2>Surroga del Mutuo: Quando Conviene e Come Ottenerla alle Condizioni Migliori</h2>
+                    <p>Con i tassi in evoluzione, surrogare il mutuo può far risparmiare centinaia di euro al mese. Guida completa su come funziona, chi può farlo e come presentarsi alla banca nel modo giusto.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Finance</span>
+                        <a href="blog/surroga-mutuo-guida-2026.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- OPERE EDILI 1 -->
+            <article class="article-card" data-cat="opere-edili">
+                <div class="card-thumb cat-opere-edili"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-opere-edili">Opere Edili</span>
+                        <span class="card-date">20 Marzo 2026</span>
+                    </div>
+                    <h2>Ristrutturare per Rivendere: Gli Interventi che Aumentano il Valore di un Immobile</h2>
+                    <p>Non tutte le ristrutturazioni rendono allo stesso modo. Scopri quali interventi garantiscono il miglior ritorno sull'investimento e come pianificare i lavori per massimizzare il prezzo di rivendita.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Opere Edili</span>
+                        <a href="blog/ristrutturare-per-rivendere-interventi-valore.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- OPERE EDILI 2 -->
+            <article class="article-card" data-cat="opere-edili">
+                <div class="card-thumb cat-opere-edili"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-opere-edili">Opere Edili</span>
+                        <span class="card-date">8 Marzo 2026</span>
+                    </div>
+                    <h2>Frazionamento Immobiliare: Guida Completa tra Burocrazia, Costi e Opportunità</h2>
+                    <p>Dividere un appartamento grande in due unità più piccole può moltiplicare il rendimento da locazione. Ecco tutto quello che devi sapere: iter burocratico, costi reali e quando conviene davvero farlo.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Opere Edili</span>
+                        <a href="blog/frazionamento-immobiliare-guida.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CONSULENZA CREDITO 1 -->
+            <article class="article-card" data-cat="consulenza-credito">
+                <div class="card-thumb cat-consulenza-credito"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-consulenza-credito">Consulenza Credito</span>
+                        <span class="card-date">15 Marzo 2026</span>
+                    </div>
+                    <h2>Segnalazione CRIF: Come Uscirne e Tornare Bancabile in 12 Mesi</h2>
+                    <p>Una segnalazione negativa in CRIF può bloccare l'accesso al credito per anni. Ma esistono percorsi strutturati per ripristinare la propria bancabilità. Ecco la strategia passo dopo passo.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Consulenza Credito</span>
+                        <a href="blog/uscire-segnalazione-crif-guida.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CONSULENZA CREDITO 2 -->
+            <article class="article-card" data-cat="consulenza-credito">
+                <div class="card-thumb cat-consulenza-credito"></div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-cat cat-consulenza-credito">Consulenza Credito</span>
+                        <span class="card-date">1 Marzo 2026</span>
+                    </div>
+                    <h2>Pianificazione Patrimoniale: Come Strutturare il Patrimonio Immobiliare in Modo Fiscalmente Efficiente</h2>
+                    <p>Detenere immobili come persona fisica o tramite società? Quali strutture permettono di ottimizzare le imposte e proteggere il patrimonio? Una guida pratica per investitori e imprenditori.</p>
+                    <div class="card-footer">
+                        <span class="card-author">BBRE Consulenza Credito</span>
+                        <a href="blog/pianificazione-patrimoniale-immobiliare.html" class="card-link">Leggi →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+        <div class="no-results" id="no-results">
+            <h3>Nessun articolo trovato</h3>
+            <p>Prova a selezionare un'altra categoria.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-box">
+        <h3>Hai domande specifiche?</h3>
+        <p>Parla direttamente con un nostro esperto. La prima consulenza è gratuita e senza impegno.</p>
+        <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-calendar">
+            📅 Prenota Consulenza Gratuita
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>BBRE <span>Group</span></h3>
+            <p>Real Estate, Finance &amp; Construction Excellence.<br>Il partner strategico per i tuoi investimenti immobiliari.</p>
+            <address>
+                <strong style="color:white;">Sede Operativa:</strong><br>
+                Via Valosa di sopra, 26 — 20900 Monza (MB)<br>
+                P.IVA: 13621430969
+            </address>
+        </div>
+        <div class="footer-col">
+            <h4>Brand</h4>
+            <ul>
+                <li><a href="immobiliare.html">BBRE Immobiliare</a></li>
+                <li><a href="finance.html">BBRE Finance</a></li>
+                <li><a href="opere-edili.html">BBRE Opere Edili</a></li>
+                <li><a href="consulenza-credito.html">BBRE Consulenza Credito</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Risorse</h4>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html?cat=immobiliare">Articoli Immobiliare</a></li>
+                <li><a href="blog.html?cat=finance">Articoli Finance</a></li>
+                <li><a href="blog.html?cat=opere-edili">Articoli Edilizia</a></li>
+                <li><a href="blog.html?cat=consulenza-credito">Articoli Credito</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contatti</h4>
+            <ul>
+                <li><a href="mailto:barbieri@bbre.it">barbieri@bbre.it</a></li>
+                <li><a href="tel:+393358083125">+39 335 808 3125</a></li>
+                <li><a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank">Prenota Consulenza</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 BBRE Group SRL — P.IVA 13621430969 &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Cookie Policy</a></p>
+    </div>
+</footer>
+
+<script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.article-card');
+    const countEl = document.getElementById('blog-count');
+    const noResults = document.getElementById('no-results');
+
+    function filterCards(cat) {
+        let visible = 0;
+        cards.forEach(card => {
+            const match = cat === 'all' || card.dataset.cat === cat;
+            card.classList.toggle('hidden', !match);
+            if (match) visible++;
+        });
+        countEl.textContent = visible + (visible === 1 ? ' articolo' : ' articoli');
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterCards(btn.dataset.cat);
+        });
+    });
+
+    // Leggi parametro ?cat= dall'URL
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('cat');
+    if (catParam) {
+        const targetBtn = document.querySelector(`.filter-btn[data-cat="${catParam}"]`);
+        if (targetBtn) targetBtn.click();
+    }
+</script>
+</body>
+</html>
