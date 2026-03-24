@@ -383,7 +383,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2026 BBRE Group SRL — P.IVA 13621430969 &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Cookie Policy</a></p>
+        <p>&copy; 2026 BBRE Group SRL — P.IVA 13621430969 &nbsp;|&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="cookie-policy.html">Cookie Policy</a></p>
     </div>
 </footer>
 
@@ -406,6 +406,29 @@
     window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0A1929;color:rgba(255,255,255,0.9);padding:18px 30px;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:2px solid #C9A962;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+    <p style="margin:0;font-size:0.88rem;line-height:1.6;max-width:680px;">Utilizziamo cookie tecnici necessari e, previo consenso, cookie analitici per migliorare la tua esperienza. Per saperne di più, leggi la nostra <a href="/cookie-policy.html" style="color:#C9A962;">Cookie Policy</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+        <button onclick="acceptCookies('necessary')" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:9px 20px;border-radius:4px;cursor:pointer;font-size:0.85rem;">Solo necessari</button>
+        <button onclick="acceptCookies('all')" style="background:#C9A962;color:white;border:none;padding:9px 20px;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:600;">Accetta tutti</button>
+    </div>
+</div>
+<script>
+    (function() {
+        var consent = localStorage.getItem('bbre_cookie_consent');
+        if (!consent) {
+            var banner = document.getElementById('cookieBanner');
+            if (banner) { banner.style.display = 'flex'; }
+        }
+    })();
+    function acceptCookies(type) {
+        localStorage.setItem('bbre_cookie_consent', type);
+        var banner = document.getElementById('cookieBanner');
+        if (banner) banner.style.display = 'none';
+    }
 </script>
 </body>
 </html>
