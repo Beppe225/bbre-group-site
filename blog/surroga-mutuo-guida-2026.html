@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aste Giudiziarie: Come Acquistare un Immobile al di Sotto del Valore di Mercato — BBRE Group</title>
+    <meta name="description" content="Come funzionano le aste giudiziarie, i rischi da evitare e la strategia vincente per aggiudicarsi l'immobile giusto al prezzo giusto.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #2C3E50; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(10px);
+            padding: 0 40px; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(201,169,98,0.2);
+        }
+        .nav-logo { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; }
+        .nav-logo span { color: #C9A962; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #C9A962; }
+        .nav-cta { background: #C9A962; color: white; padding: 10px 24px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+        .nav-cta:hover { background: #b8934f; }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            background: linear-gradient(135deg, #0A1929 0%, #1a2f42 100%);
+            color: white; padding: 130px 20px 70px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .article-hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%;
+            width: 80%; height: 150%;
+            background: radial-gradient(circle, rgba(201,169,98,0.10) 0%, transparent 70%);
+        }
+        .article-hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; }
+        .breadcrumb a:hover { color: #C9A962; }
+        .breadcrumb span { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+        .article-cat {
+            display: inline-block; background: rgba(201,169,98,0.15); color: #C9A962;
+            border: 1px solid rgba(201,169,98,0.4); padding: 6px 18px; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .article-hero h1 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .article-meta { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; opacity: 0.8; font-size: 0.9rem; }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* ARTICLE LAYOUT */
+        .article-layout { max-width: 1100px; margin: 0 auto; padding: 70px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: start; }
+
+        /* ARTICLE BODY */
+        .article-body { min-width: 0; }
+        .article-body .lead {
+            font-size: 1.2rem; line-height: 1.9; color: #3D4F5C; font-weight: 400;
+            border-left: 4px solid #C9A962; padding-left: 20px; margin-bottom: 40px;
+        }
+        .article-body h2 { font-family: Georgia, serif; font-size: 1.6rem; font-weight: 700; color: #0A1929; margin: 40px 0 16px; }
+        .article-body h3 { font-family: Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #0A1929; margin: 28px 0 12px; }
+        .article-body p { font-size: 1.02rem; line-height: 1.9; color: #3D4F5C; margin-bottom: 20px; }
+        .article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-body li { font-size: 1.02rem; line-height: 1.85; color: #3D4F5C; margin-bottom: 8px; }
+        .article-body strong { color: #0A1929; font-weight: 700; }
+
+        .info-box {
+            background: #F4F6F8; border-left: 4px solid #C9A962; padding: 24px 28px;
+            border-radius: 0 8px 8px 0; margin: 32px 0;
+        }
+        .info-box h4 { font-weight: 700; color: #0A1929; margin-bottom: 10px; font-size: 1rem; }
+        .info-box p { font-size: 0.95rem; color: #5A6C7D; margin: 0; line-height: 1.75; }
+
+        .warning-box {
+            background: #FFF8E7; border-left: 4px solid #F0A500; padding: 24px 28px;
+            border-radius: 0 8px 8px 0; margin: 32px 0;
+        }
+        .warning-box h4 { font-weight: 700; color: #7A5200; margin-bottom: 10px; font-size: 1rem; }
+        .warning-box p { font-size: 0.95rem; color: #5A4000; margin: 0; line-height: 1.75; }
+
+        .article-divider { border: none; border-top: 1px solid #E8ECF0; margin: 40px 0; }
+
+        /* SIDEBAR */
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-box { background: #F4F6F8; border-radius: 12px; padding: 28px; margin-bottom: 24px; border-top: 3px solid #C9A962; }
+        .sidebar-box h4 { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #0A1929; margin-bottom: 16px; }
+        .sidebar-box p { font-size: 0.9rem; color: #5A6C7D; line-height: 1.7; margin-bottom: 16px; }
+        .btn-sidebar { display: block; background: #C9A962; color: white; padding: 12px 20px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; text-align: center; transition: background 0.2s; }
+        .btn-sidebar:hover { background: #b8934f; }
+        .related-list { list-style: none; padding: 0; }
+        .related-list li { border-bottom: 1px solid #E8ECF0; padding: 10px 0; }
+        .related-list li:last-child { border-bottom: none; }
+        .related-list a { color: #2C3E50; text-decoration: none; font-size: 0.9rem; line-height: 1.5; font-weight: 500; transition: color 0.2s; }
+        .related-list a:hover { color: #C9A962; }
+        .related-cat { font-size: 0.75rem; color: #8A9BAC; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+
+        /* ARTICLE FOOTER */
+        .article-tags { padding: 30px 40px; max-width: 1100px; margin: 0 auto; border-top: 1px solid #E8ECF0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .tag-label { font-size: 0.85rem; color: #8A9BAC; font-weight: 600; }
+        .tag { background: #F4F6F8; color: #5A6C7D; padding: 5px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+
+        .back-to-blog { padding: 30px 40px 60px; max-width: 1100px; margin: 0 auto; }
+        .back-link { color: #C9A962; text-decoration: none; font-weight: 700; font-size: 0.95rem; }
+        .back-link:hover { text-decoration: underline; }
+
+        footer { background: #0A1929; color: rgba(255,255,255,0.75); padding: 70px 40px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .footer-brand h3 { font-family: Georgia, serif; font-size: 1.8rem; color: white; margin-bottom: 16px; }
+        .footer-brand h3 span { color: #C9A962; }
+        .footer-brand p { line-height: 1.8; margin-bottom: 20px; }
+        .footer-brand address { font-style: normal; line-height: 1.8; font-size: 0.9rem; }
+        .footer-col h4 { color: white; font-weight: 700; margin-bottom: 20px; font-size: 1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: #C9A962; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+        .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+        .footer-bottom a:hover { color: #C9A962; }
+
+        @media (max-width: 900px) {
+            .article-layout { grid-template-columns: 1fr; padding: 50px 20px; }
+            .sidebar { position: static; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .article-tags, .back-to-blog { padding-left: 20px; padding-right: 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            footer { padding: 60px 20px 30px; }
+        }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="nav-logo">BBRE <span>Group</span></a>
+    <ul class="nav-links">
+        <li><a href="../index.html#brands">I Nostri Brand</a></li>
+        <li><a href="../index.html#chi-siamo">Chi Siamo</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../index.html#consulenza">Consulenza</a></li>
+    </ul>
+    <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="nav-cta">Prenota Consulenza</a>
+</nav>
+
+<section class="article-hero">
+    <div class="article-hero-inner">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>›</span>
+            <a href="../blog.html">Blog</a>
+            <span>›</span>
+            <span style="color:rgba(255,255,255,0.8);">Immobiliare</span>
+        </div>
+        <div class="article-cat">Immobiliare</div>
+        <h1>Aste Giudiziarie: Come Acquistare un Immobile al di Sotto del Valore di Mercato</h1>
+        <div class="article-meta">
+            <span>📅 18 Marzo 2026</span>
+            <span>✍️ BBRE Immobiliare</span>
+            <span>⏱ 8 min di lettura</span>
+        </div>
+    </div>
+</section>
+
+<div class="article-layout">
+    <article class="article-body">
+
+        <p class="lead">Le aste giudiziarie rappresentano una delle opportunità più interessanti per chi vuole investire in immobili con un risparmio significativo rispetto al mercato libero. Ma richiedono conoscenza, preparazione e — soprattutto — il supporto di professionisti esperti.</p>
+
+        <h2>Cos'è un'Asta Giudiziaria Immobiliare</h2>
+        <p>Un'asta giudiziaria si attiva quando un debitore non riesce a onorare i propri impegni finanziari con una banca o un creditore. Il tribunale procede con il pignoramento dell'immobile e ne dispone la vendita pubblica per soddisfare il credito.</p>
+        <p>Il risultato è che gli immobili vengono spesso aggiudicati a prezzi significativamente inferiori a quelli di mercato — in alcuni casi con sconti che arrivano al 30-40% rispetto alla stima iniziale.</p>
+
+        <h2>Le Tipologie di Asta</h2>
+        <h3>Asta con Incanto</h3>
+        <p>È la forma classica: i partecipanti rilanciano al rialzo a partire dal prezzo base. Meno diffusa oggi, richiede la presenza fisica in udienza.</p>
+
+        <h3>Asta Senza Incanto</h3>
+        <p>Ogni offerente presenta un'offerta in busta chiusa. Se l'offerta supera il prezzo base di almeno 1/5, viene accettata direttamente. È la modalità più comune oggi.</p>
+
+        <h3>Vendita Telematica</h3>
+        <p>Le offerte vengono presentate online tramite portali autorizzati. Offre maggiore comodità e anonimato, ed è in costante crescita.</p>
+
+        <div class="info-box">
+            <h4>Dove trovare le aste</h4>
+            <p>Le aste giudiziarie sono pubblicate sui portali del Ministero della Giustizia (pvp.giustizia.it), su Astegiudiziarie.it e su altri portali autorizzati. BBRE Immobiliare monitora costantemente questi canali per i propri clienti.</p>
+        </div>
+
+        <h2>Il Processo Passo per Passo</h2>
+        <ol>
+            <li><strong>Individuazione dell'immobile:</strong> analisi degli avvisi di vendita pubblicati dai tribunali.</li>
+            <li><strong>Perizia tecnica:</strong> lettura della perizia del CTU (Consulente Tecnico d'Ufficio) allegata all'asta.</li>
+            <li><strong>Sopralluogo:</strong> visita dell'immobile nelle date previste dal tribunale.</li>
+            <li><strong>Due diligence:</strong> verifica urbanistica, catastale e legale prima di fare un'offerta.</li>
+            <li><strong>Deposito cauzione:</strong> versamento del 10% del prezzo base come cauzione.</li>
+            <li><strong>Presentazione dell'offerta:</strong> in busta chiusa o online, entro i termini.</li>
+            <li><strong>Aggiudicazione:</strong> in caso di successo, versamento del saldo entro 60-120 giorni.</li>
+            <li><strong>Decreto di trasferimento:</strong> il giudice emette il decreto che trasferisce la proprietà.</li>
+        </ol>
+
+        <h2>I Rischi da Conoscere</h2>
+
+        <div class="warning-box">
+            <h4>⚠️ Attenzione a questi aspetti</h4>
+            <p>Gli immobili all'asta vengono venduti nello stato in cui si trovano. È fondamentale fare una due diligence approfondita prima di fare un'offerta per evitare brutte sorprese.</p>
+        </div>
+
+        <ul>
+            <li><strong>Occupazione dell'immobile:</strong> il debitore (o un inquilino) potrebbe ancora occupare l'immobile. Il rilascio è a carico dell'aggiudicatario.</li>
+            <li><strong>Ipoteche non cancellate:</strong> alcune ipoteche potrebbero sopravvivere alla vendita. La perizia deve chiarire quali vengono cancellate automaticamente.</li>
+            <li><strong>Conformità urbanistica:</strong> abusi edilizi non sanabili possono rendere l'immobile difficilmente rivendibile o affittabile.</li>
+            <li><strong>Spese condominiali arretrate:</strong> l'acquirente risponde delle spese non pagate degli ultimi due anni.</li>
+        </ul>
+
+        <h2>Perché Affidarsi a un Professionista</h2>
+        <p>La complessità procedurale e i rischi connessi rendono le aste giudiziarie un terreno non adatto ai non esperti. BBRE Immobiliare supporta i propri clienti in ogni fase: dall'individuazione degli immobili più interessanti all'analisi della perizia, dalla strategia di offerta alla gestione post-aggiudicazione.</p>
+        <p>Il nostro team conosce i meccanismi dei tribunali di Milano e provincia e ha completato con successo numerose aggiudicazioni, ottenendo per i clienti sconti medi del 25-35% rispetto al valore di mercato.</p>
+
+        <hr class="article-divider">
+
+        <p><em>Vuoi sapere se ci sono opportunità interessanti in asta attualmente disponibili? Prenota una consulenza gratuita con il nostro team.</em></p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-box">
+            <h4>Parliamo del Tuo Investimento</h4>
+            <p>Il nostro team monitora quotidianamente le aste giudiziarie su Milano e provincia. Scopri le opportunità disponibili.</p>
+            <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-sidebar">📅 Consulenza Gratuita</a>
+        </div>
+
+        <div class="sidebar-box">
+            <h4>Articoli Correlati</h4>
+            <ul class="related-list">
+                <li>
+                    <span class="related-cat">Immobiliare</span>
+                    <a href="milano-hinterland-zone-investimento-2026.html">Milano Hinterland 2026: le Zone con il Miglior Rendimento</a>
+                </li>
+                <li>
+                    <span class="related-cat">Finance</span>
+                    <a href="mutuo-vs-leasing-immobiliare-2026.html">Mutuo o Leasing: Quale Conviene per l'Investitore?</a>
+                </li>
+                <li>
+                    <span class="related-cat">Opere Edili</span>
+                    <a href="ristrutturare-per-rivendere-interventi-valore.html">Ristrutturare per Rivendere: Gli Interventi che Aumentano il Valore</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-box">
+            <h4>BBRE Immobiliare</h4>
+            <p>Investimenti immobiliari strategici su Milano e provincia: scouting, due diligence, aste e sviluppo.</p>
+            <a href="../immobiliare.html" class="btn-sidebar" style="background:#0A1929;">Scopri i Servizi →</a>
+        </div>
+    </aside>
+</div>
+
+<div class="article-tags">
+    <span class="tag-label">Tag:</span>
+    <span class="tag">Aste Giudiziarie</span>
+    <span class="tag">Investimenti Immobiliari</span>
+    <span class="tag">Milano</span>
+    <span class="tag">Due Diligence</span>
+    <span class="tag">ROI</span>
+</div>
+
+<div class="back-to-blog">
+    <a href="../blog.html" class="back-link">← Torna al Blog</a>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>BBRE <span>Group</span></h3>
+            <p>Real Estate, Finance &amp; Construction Excellence.</p>
+            <address>Via Valosa di sopra, 26 — 20900 Monza (MB)<br>P.IVA: 13621430969</address>
+        </div>
+        <div class="footer-col">
+            <h4>Brand</h4>
+            <ul>
+                <li><a href="../immobiliare.html">BBRE Immobiliare</a></li>
+                <li><a href="../finance.html">BBRE Finance</a></li>
+                <li><a href="../opere-edili.html">BBRE Opere Edili</a></li>
+                <li><a href="../consulenza-credito.html">BBRE Consulenza Credito</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Risorse</h4>
+            <ul>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../blog.html?cat=immobiliare">Articoli Immobiliare</a></li>
+                <li><a href="../blog.html?cat=finance">Articoli Finance</a></li>
+                <li><a href="../blog.html?cat=opere-edili">Articoli Edilizia</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contatti</h4>
+            <ul>
+                <li><a href="mailto:barbieri@bbre.it">barbieri@bbre.it</a></li>
+                <li><a href="tel:+393358083125">+39 335 808 3125</a></li>
+                <li><a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank">Prenota Consulenza</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 BBRE Group SRL — P.IVA 13621430969 &nbsp;|&nbsp; <a href="#">Privacy Policy</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
