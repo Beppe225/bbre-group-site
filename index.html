@@ -153,6 +153,46 @@
         .valore h4 { font-size: 1.1rem; margin-bottom: 10px; color: #C9A962; font-weight: 700; }
         .valore p { font-size: 0.9rem; line-height: 1.65; opacity: 0.85; margin: 0; }
 
+        /* CONSULENZA */
+        .consulenza-section {
+            padding: 100px 20px; background: #F4F6F8; text-align: center;
+        }
+        .consulenza-section .section-tag { margin-bottom: 16px; }
+        .consulenza-section h2 {
+            font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900; color: #0A1929; margin-bottom: 20px;
+        }
+        .consulenza-section > p {
+            font-size: 1.15rem; color: #5A6C7D; line-height: 1.8;
+            max-width: 650px; margin: 0 auto 50px;
+        }
+        .consulenza-box {
+            max-width: 760px; margin: 0 auto;
+            background: white; border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            padding: 50px 50px;
+            border-top: 4px solid #C9A962;
+        }
+        .consulenza-steps {
+            display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 40px;
+        }
+        .consulenza-step { text-align: center; }
+        .step-num {
+            width: 48px; height: 48px; background: #C9A962; color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.1rem; margin: 0 auto 14px;
+        }
+        .consulenza-step h4 { font-size: 1rem; font-weight: 700; color: #0A1929; margin-bottom: 6px; }
+        .consulenza-step p { font-size: 0.9rem; color: #5A6C7D; line-height: 1.6; }
+        .btn-calendar {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #C9A962; color: white; padding: 18px 48px;
+            text-decoration: none; border-radius: 6px; font-weight: 700;
+            font-size: 1.1rem; transition: all 0.2s;
+        }
+        .btn-calendar:hover { background: #b8934f; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,98,0.35); }
+        .consulenza-note { margin-top: 18px; font-size: 0.85rem; color: #8A9BAC; }
+
         /* CTA */
         .cta-section { padding: 100px 20px; background: white; text-align: center; }
         .cta-section h2 {
@@ -219,9 +259,10 @@
     <ul class="nav-links">
         <li><a href="#brands">I Nostri Brand</a></li>
         <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#consulenza">Consulenza</a></li>
         <li><a href="#contatti">Contatti</a></li>
     </ul>
-    <a href="mailto:barbieri@bbre.it" class="nav-cta">Consulenza Gratuita</a>
+    <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="nav-cta">Prenota Consulenza</a>
 </nav>
 
 <!-- HERO -->
@@ -238,7 +279,7 @@
         </p>
         <div class="hero-btns">
             <a href="#brands" class="btn-primary">Scopri i Nostri Servizi</a>
-            <a href="#contatti" class="btn-outline">Contattaci</a>
+            <a href="#consulenza" class="btn-outline">Prenota Consulenza Gratuita</a>
         </div>
         <div class="hero-stats">
             <div class="stat-card">
@@ -279,7 +320,7 @@
                 <li>Gestione aste giudiziarie</li>
                 <li>Compravendita immobiliare</li>
             </ul>
-            <a href="#" class="card-link">Scopri di più →</a>
+            <a href="immobiliare.html" class="card-link">Scopri di più →</a>
         </div>
 
         <div class="brand-card">
@@ -293,7 +334,7 @@
                 <li>Surroga e ristrutturazione mutui</li>
                 <li>Consulenza finanziaria strategica</li>
             </ul>
-            <a href="#" class="card-link">Scopri di più →</a>
+            <a href="finance.html" class="card-link">Scopri di più →</a>
         </div>
 
         <div class="brand-card">
@@ -307,7 +348,7 @@
                 <li>Design e progettazione architettonica</li>
                 <li>Gestione pratiche edilizie</li>
             </ul>
-            <a href="#" class="card-link">Scopri di più →</a>
+            <a href="opere-edili.html" class="card-link">Scopri di più →</a>
         </div>
 
         <div class="brand-card">
@@ -321,7 +362,7 @@
                 <li>Ottimizzazione fiscale immobiliare</li>
                 <li>Consulenza creditizia strategica</li>
             </ul>
-            <a href="#" class="card-link">Scopri di più →</a>
+            <a href="consulenza-credito.html" class="card-link">Scopri di più →</a>
         </div>
 
     </div>
@@ -357,12 +398,42 @@
     </div>
 </section>
 
+<!-- CONSULENZA GRATUITA -->
+<section class="consulenza-section" id="consulenza">
+    <div class="section-tag">Prenota Online</div>
+    <h2>Consulenza Gratuita con un Esperto</h2>
+    <p>Scegli il giorno e l'orario che preferisci. In 30 minuti analizziamo la tua situazione e ti indichiamo il percorso migliore.</p>
+    <div class="consulenza-box">
+        <div class="consulenza-steps">
+            <div class="consulenza-step">
+                <div class="step-num">1</div>
+                <h4>Scegli la Data</h4>
+                <p>Seleziona giorno e orario disponibile nel calendario online.</p>
+            </div>
+            <div class="consulenza-step">
+                <div class="step-num">2</div>
+                <h4>Colloquio con l'Esperto</h4>
+                <p>30 minuti di consulenza personalizzata con un professionista BBRE.</p>
+            </div>
+            <div class="consulenza-step">
+                <div class="step-num">3</div>
+                <h4>Piano d'Azione</h4>
+                <p>Ricevi una roadmap concreta e senza impegno per il tuo progetto.</p>
+            </div>
+        </div>
+        <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-calendar">
+            📅 Prenota la Tua Consulenza Gratuita
+        </a>
+        <p class="consulenza-note">Nessun impegno • 100% gratuita • Risposta entro 24h</p>
+    </div>
+</section>
+
 <!-- CTA FINALE -->
 <section class="cta-section" id="contatti">
     <h2>Inizia il Tuo Progetto</h2>
     <p>Che tu sia un investitore, un proprietario immobiliare o un privato, BBRE Group ha la soluzione giusta per te.</p>
     <div class="cta-btns">
-        <a href="mailto:barbieri@bbre.it" class="btn-primary">Richiedi Consulenza Gratuita</a>
+        <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-primary">Prenota Consulenza Gratuita</a>
         <a href="tel:+393358083125" class="btn-dark">Chiamaci Ora</a>
     </div>
 </section>
@@ -382,10 +453,10 @@
         <div class="footer-col">
             <h4>Brand</h4>
             <ul>
-                <li><a href="#">BBRE Immobiliare</a></li>
-                <li><a href="#">BBRE Finance</a></li>
-                <li><a href="#">BBRE Opere Edili</a></li>
-                <li><a href="#">BBRE Consulenza Credito</a></li>
+                <li><a href="immobiliare.html">BBRE Immobiliare</a></li>
+                <li><a href="finance.html">BBRE Finance</a></li>
+                <li><a href="opere-edili.html">BBRE Opere Edili</a></li>
+                <li><a href="consulenza-credito.html">BBRE Consulenza Credito</a></li>
             </ul>
         </div>
         <div class="footer-col">

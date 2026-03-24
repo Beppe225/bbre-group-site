@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBRE Opere Edili — Ristrutturazioni e Costruzioni Chiavi in Mano</title>
+    <meta name="description" content="Ristrutturazioni complete, nuove costruzioni, riqualificazioni energetiche con gestione chiavi in mano del progetto. BBRE Opere Edili a Milano e provincia.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #2C3E50; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(10px);
+            padding: 0 40px; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(201,169,98,0.2);
+        }
+        .nav-logo { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; }
+        .nav-logo span { color: #C9A962; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+        .nav-links a:hover { color: #C9A962; }
+        .nav-cta { background: #C9A962; color: white; padding: 10px 24px; border-radius: 4px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+        .nav-cta:hover { background: #b8934f; }
+
+        .hero {
+            background: linear-gradient(135deg, #0A1929 0%, #1a2f42 100%);
+            color: white; padding: 140px 20px 90px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%;
+            width: 80%; height: 150%;
+            background: radial-gradient(circle, rgba(201,169,98,0.12) 0%, transparent 70%);
+        }
+        .hero-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; }
+        .breadcrumb a:hover { color: #C9A962; }
+        .breadcrumb span { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+        .hero-badge { display: inline-block; background: rgba(201,169,98,0.15); color: #C9A962; border: 1px solid rgba(201,169,98,0.4); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+        .hero h1 { font-family: Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 20px; line-height: 1.15; }
+        .hero h1 span { color: #C9A962; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.2rem); max-width: 700px; margin: 0 auto 36px; opacity: 0.88; line-height: 1.85; }
+        .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: #C9A962; color: white; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+        .btn-primary:hover { background: #b8934f; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,98,0.3); }
+        .btn-outline { background: transparent; color: white; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 1rem; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+        .section { padding: 90px 40px; }
+        .section-light { background: white; }
+        .section-gray { background: #F4F6F8; }
+        .section-dark { background: linear-gradient(135deg, #0A1929 0%, #1a2f42 100%); color: white; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-tag { color: #C9A962; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 14px; }
+        .section-title { font-family: Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: #0A1929; margin-bottom: 18px; line-height: 1.2; }
+        .section-dark .section-title { color: white; }
+        .section-title span { color: #C9A962; }
+        .section-lead { font-size: 1.1rem; color: #5A6C7D; line-height: 1.85; max-width: 700px; margin-bottom: 50px; }
+        .section-dark .section-lead { color: rgba(255,255,255,0.8); }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+        .service-card { background: white; border-radius: 12px; padding: 36px; box-shadow: 0 2px 14px rgba(0,0,0,0.07); border-top: 3px solid #C9A962; transition: transform 0.2s, box-shadow 0.2s; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .service-icon { font-size: 2.2rem; margin-bottom: 18px; }
+        .service-card h3 { font-family: Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #0A1929; margin-bottom: 12px; }
+        .service-card p { color: #5A6C7D; font-size: 0.95rem; line-height: 1.75; }
+
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+        .process-step { text-align: center; padding: 30px 20px; }
+        .process-num { width: 56px; height: 56px; background: #C9A962; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; margin: 0 auto 18px; }
+        .process-step h4 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 10px; }
+        .process-step p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.65; }
+
+        .features-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-check { color: #C9A962; font-weight: 900; font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+        .feature-item span { font-size: 0.95rem; color: #2C3E50; line-height: 1.5; }
+
+        .cta-box { background: white; border-radius: 16px; padding: 60px 50px; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.15); max-width: 700px; margin: 0 auto; border-top: 4px solid #C9A962; }
+        .cta-box h3 { font-family: Georgia, serif; font-size: 2rem; font-weight: 900; color: #0A1929; margin-bottom: 16px; }
+        .cta-box p { color: #5A6C7D; font-size: 1.05rem; margin-bottom: 32px; line-height: 1.75; }
+        .btn-calendar { display: inline-flex; align-items: center; gap: 10px; background: #C9A962; color: white; padding: 16px 44px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
+        .btn-calendar:hover { background: #b8934f; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,98,0.35); }
+        .cta-note { margin-top: 14px; font-size: 0.85rem; color: #8A9BAC; }
+
+        footer { background: #0A1929; color: rgba(255,255,255,0.75); padding: 70px 40px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .footer-brand h3 { font-family: Georgia, serif; font-size: 1.8rem; color: white; margin-bottom: 16px; }
+        .footer-brand h3 span { color: #C9A962; }
+        .footer-brand p { line-height: 1.8; margin-bottom: 20px; }
+        .footer-brand address { font-style: normal; line-height: 1.8; font-size: 0.9rem; }
+        .footer-col h4 { color: white; font-weight: 700; margin-bottom: 20px; font-size: 1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: #C9A962; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+        .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+        .footer-bottom a:hover { color: #C9A962; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .section { padding: 70px 20px; }
+            .features-two-col { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            footer { padding: 60px 20px 30px; }
+            .cta-box { padding: 40px 24px; }
+        }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">BBRE <span>Group</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html#brands">I Nostri Brand</a></li>
+        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+        <li><a href="index.html#consulenza">Consulenza</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+    </ul>
+    <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="nav-cta">Prenota Consulenza</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="breadcrumb">
+            <a href="index.html">BBRE Group</a>
+            <span>›</span>
+            <span style="color:rgba(255,255,255,0.8);">BBRE Opere Edili</span>
+        </div>
+        <div class="hero-badge">Divisione Edile</div>
+        <h1>Ristrutturazioni e Costruzioni<br><span>Chiavi in Mano</span></h1>
+        <p>Dal progetto alla consegna: gestiamo ogni aspetto della ristrutturazione o costruzione, con team specializzati, tempi certi e garanzie contrattuali.</p>
+        <div class="hero-btns">
+            <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-primary">Prenota Sopralluogo Gratuito</a>
+            <a href="index.html" class="btn-outline">← Torna alla Home</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="section section-light">
+    <div class="section-inner">
+        <div class="section-tag">I Nostri Servizi</div>
+        <h2 class="section-title">Dalla progettazione<br><span>alla consegna</span></h2>
+        <p class="section-lead">Ogni intervento è gestito internamente dal nostro team di architetti, ingegneri e imprese edili certificate. Un unico referente, nessun sorpresa.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Ristrutturazioni Residenziali</h3>
+                <p>Rinnovo completo di appartamenti, ville e immobili residenziali. Dal rifacimento del bagno alla ristrutturazione integrale con gestione di tutti i lavori.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✂️</div>
+                <h3>Frazionamenti e Ampliamenti</h3>
+                <p>Divisione di unità immobiliari, ampliamenti in sopraelevazione o in superficie. Gestione completa delle pratiche catastali e urbanistiche.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>Efficientamento Energetico</h3>
+                <p>Interventi Superbonus, cappotti termici, sostituzione infissi, impianti fotovoltaici e pompe di calore. Massimizzazione degli incentivi fiscali disponibili.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📐</div>
+                <h3>Design e Progettazione</h3>
+                <p>Studio degli spazi, progettazione architettonica e interior design integrato. Dal concept al rendering 3D, fino alla direzione lavori in cantiere.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3>Pratiche Edilizie</h3>
+                <p>Gestione di CILA, SCIA, permessi di costruire e sanatorie. Rapporti con Comuni e Soprintendenza per immobili vincolati o in zone particolari.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Nuove Costruzioni</h3>
+                <p>Sviluppo di nuovi edifici residenziali e commerciali: dalla progettazione al completamento, con gestione completa del cantiere e certificazioni finali.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="section section-dark">
+    <div class="section-inner">
+        <div class="section-tag">Il Nostro Metodo</div>
+        <h2 class="section-title">Come gestiamo <span>il tuo cantiere</span></h2>
+        <p class="section-lead">Un processo strutturato per garantire qualità, tempi e budget: nessuna sorpresa, solo risultati.</p>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-num">1</div>
+                <h4>Sopralluogo e Analisi</h4>
+                <p>Visita gratuita dell'immobile, analisi della situazione attuale e ascolto delle tue esigenze e obiettivi.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">2</div>
+                <h4>Progettazione</h4>
+                <p>Elaborazione del progetto architettonico, rendering 3D e preventivo dettagliato con capitolato dei lavori.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">3</div>
+                <h4>Pratiche e Permessi</h4>
+                <p>Gestione di tutte le autorizzazioni necessarie presso Comune, Catasto e altri enti competenti.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">4</div>
+                <h4>Esecuzione Lavori</h4>
+                <p>Coordinamento del cantiere con direzione lavori dedicata, aggiornamenti costanti e controllo qualità.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">5</div>
+                <h4>Consegna e Garanzie</h4>
+                <p>Collaudo finale, pratiche di aggiornamento catastale e garanzie contrattuali sulle lavorazioni eseguite.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PERCHÉ NOI -->
+<section class="section section-gray">
+    <div class="section-inner">
+        <div class="section-tag">I Nostri Punti di Forza</div>
+        <h2 class="section-title">Perché scegliere <span>BBRE Opere Edili</span></h2>
+        <p class="section-lead">Qualità artigianale, gestione manageriale e integrazione con il resto del gruppo BBRE: la garanzia di un progetto perfettamente coordinato.</p>
+        <div class="features-two-col">
+            <div class="feature-item"><span class="feature-check">✓</span><span>Team interno di architetti e ingegneri dedicati</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Imprese edili certificate e selezionate</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Preventivi dettagliati senza costi nascosti</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Gestione completa delle pratiche burocratiche</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Accesso agli incentivi Superbonus e Ecobonus</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Finanziamento integrato tramite BBRE Finance</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Tempi garantiti contrattualmente</span></div>
+            <div class="feature-item"><span class="feature-check">✓</span><span>Garanzia post-lavori su tutte le lavorazioni</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-light">
+    <div class="cta-box">
+        <h3>Sopralluogo Gratuito a Casa Tua</h3>
+        <p>Prenota un sopralluogo senza impegno. Un nostro tecnico valuterà l'immobile e ti presenterà una stima gratuita dei lavori.</p>
+        <a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank" class="btn-calendar">
+            📅 Prenota il Sopralluogo Gratuito
+        </a>
+        <p class="cta-note">Nessun impegno • Sopralluogo gratuito • Preventivo in 48h</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>BBRE <span>Group</span></h3>
+            <p>Real Estate, Finance &amp; Construction Excellence.<br>Il partner strategico per i tuoi investimenti immobiliari.</p>
+            <address>
+                <strong style="color:white;">Sede Operativa:</strong><br>
+                Via Valosa di sopra, 26 — 20900 Monza (MB)<br>
+                P.IVA: 13621430969
+            </address>
+        </div>
+        <div class="footer-col">
+            <h4>Brand</h4>
+            <ul>
+                <li><a href="immobiliare.html">BBRE Immobiliare</a></li>
+                <li><a href="finance.html">BBRE Finance</a></li>
+                <li><a href="opere-edili.html">BBRE Opere Edili</a></li>
+                <li><a href="consulenza-credito.html">BBRE Consulenza Credito</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Servizi</h4>
+            <ul>
+                <li><a href="immobiliare.html">Investimenti Immobiliari</a></li>
+                <li><a href="opere-edili.html">Ristrutturazioni</a></li>
+                <li><a href="finance.html">Finanziamenti</a></li>
+                <li><a href="consulenza-credito.html">Consulenza Credito</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contatti</h4>
+            <ul>
+                <li><a href="mailto:barbieri@bbre.it">barbieri@bbre.it</a></li>
+                <li><a href="tel:+393358083125">+39 335 808 3125</a></li>
+                <li><a href="https://calendar.app.google/euJyxzVn7kpohk6e9" target="_blank">Prenota Consulenza</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 BBRE Group SRL — P.IVA 13621430969 &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Cookie Policy</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
