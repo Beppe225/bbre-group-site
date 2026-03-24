@@ -357,10 +357,10 @@
         </p>
         
         <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="mailto:info@bbregroup.it" style="background: #C9A962; color: white; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem;">
+            <a href="mailto:barbieri@bbre.it" style="background: #C9A962; color: white; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem;">
                 Richiedi Consulenza Gratuita
             </a>
-            <a href="tel:+390212345678" style="background: transparent; color: #0A1929; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; border: 2px solid #0A1929;">
+            <a href="tel:+393358083125" style="background: transparent; color: #0A1929; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; border: 2px solid #0A1929;">
                 Chiamaci Ora
             </a>
         </div>
@@ -386,8 +386,8 @@
             </p>
             <p>
                 <strong style="color: white;">Sede Operativa:</strong><br>
-                Milano, Lombardia<br>
-                P.IVA: [DA INSERIRE]
+                Via Valosa di sopra, 26 — 20900 Monza (MB)<br>
+                P.IVA: 13621430969
             </p>
         </div>
         
@@ -427,10 +427,10 @@
             <h4 style="color: white; font-weight: 600; margin-bottom: 20px;">Contatti</h4>
             <ul style="list-style: none; padding: 0;">
                 <li style="margin-bottom: 12px;">
-                    <a href="mailto:info@bbregroup.it" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">info@bbregroup.it</a>
+                    <a href="mailto:barbieri@bbre.it" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">barbieri@bbre.it</a>
                 </li>
                 <li style="margin-bottom: 12px;">
-                    <a href="tel:+390212345678" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">+39 02 1234 5678</a>
+                    <a href="tel:+393358083125" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">+39 335 808 3125</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     <a href="[LINKEDIN URL]" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">LinkedIn</a>
@@ -521,14 +521,14 @@ Salva questi codici colore nelle impostazioni tema di Google Sites:
 
 ---
 
-## 📞 CONTATTI DA AGGIORNARE
+## 📞 CONTATTI
 
-Trova e sostituisci in TUTTE le sezioni:
+I dati reali già inseriti in tutte le sezioni:
 
-- `barbieri@bbre.it` → TUA EMAIL REALE
-- `+39 335 8083125` → TUO TELEFONO REALE
-- `Via Valosa di sopra, 26 - 20900 Monza (MB)` → TUO INDIRIZZO REALE
-- `P.IVA: 13621430969` → TUA PARTITA IVA
+- Email: `barbieri@bbre.it` ✅
+- Telefono: `+39 335 808 3125` ✅
+- Indirizzo: `Via Valosa di sopra, 26 — 20900 Monza (MB)` ✅
+- P.IVA: `13621430969` ✅
 
 ---
 
@@ -537,12 +537,15 @@ Trova e sostituisci in TUTTE le sezioni:
 Prima di pubblicare, verifica:
 
 - [ ] Tutti i link funzionano
-- [ ] Email e telefono corretti
+- [x] Email: barbieri@bbre.it ✅
+- [x] Telefono: +39 335 808 3125 ✅
+- [x] Indirizzo: Via Valosa di sopra, 26 — Monza ✅
+- [x] P.IVA: 13621430969 ✅
+- [ ] URL brand inseriti (4 pagine)
+- [ ] LinkedIn e Instagram inseriti
 - [ ] Responsive ok su mobile
 - [ ] Immagini caricate
-- [ ] Testi personalizzati
 - [ ] Logo inserito
-- [ ] Colori brand corretti
 - [ ] SEO: titolo pagina, meta description
 - [ ] Google Analytics installato
 
